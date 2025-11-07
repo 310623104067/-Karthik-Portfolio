@@ -1,50 +1,52 @@
-// Dark Mode Toggle
+// ✅ Dark Mode Toggle
 const toggle = document.getElementById("darkModeToggle");
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
   toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 });
 
-// Typing Effect
+// ✅ Typing Effect in Hero
 const words = ["Front-End Developer", "Problem Solver", "Tech Enthusiast", "CSE Student"];
-let i = 0, j = 0, currentWord = "", isDeleting = false;
+let i = 0, j = 0;
+let isDeleting = false;
 
-function type() {
-  currentWord = words[i];
-  const displayed = isDeleting ? currentWord.substring(0, j--) : currentWord.substring(0, j++);
-  document.getElementById("typed-text").textContent = displayed;
+function typeEffect() {
+  const current = words[i];
+  document.getElementById("typed-text").textContent = isDeleting
+    ? current.substring(0, j--)
+    : current.substring(0, j++);
 
-  if (!isDeleting && j === currentWord.length) {
+  if (!isDeleting && j === current.length) {
     isDeleting = true;
-    setTimeout(type, 1000);
+    setTimeout(typeEffect, 1000);
   } else if (isDeleting && j === 0) {
     isDeleting = false;
     i = (i + 1) % words.length;
-    setTimeout(type, 500);
+    setTimeout(typeEffect, 500);
   } else {
-    setTimeout(type, isDeleting ? 50 : 100);
+    setTimeout(typeEffect, isDeleting ? 60 : 120);
   }
 }
-type();
+typeEffect();
 
-// Fade-in Scroll Animation
+// ✅ Fade-in Animation
 const faders = document.querySelectorAll(".fade-in");
-const appearOptions = { threshold: 0.3 };
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("visible");
-    observer.unobserve(entry.target);
+    if (entry.isIntersecting) entry.target.classList.add("visible");
   });
-}, appearOptions);
-faders.forEach((fader) => appearOnScroll.observe(fader));
+}, { threshold: 0.3 });
 
-// Smooth Scroll for Navigation
-document.querySelectorAll(".nav-links a").forEach((link) => {
+faders.forEach(el => observer.observe(el));
+
+// ✅ Smooth Scroll
+document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(e.target.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
+    document.querySelector(link.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
     });
   });
 });
+
+console.log("✅ Portfolio Loaded Successfully");
