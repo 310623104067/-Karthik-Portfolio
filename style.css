@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -65,7 +66,7 @@ header {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 4px solid #fff;
+  border: 4px solid white;
   box-shadow: 0 0 20px #00c6ff;
   animation: glow 3s infinite alternate;
 }
@@ -93,7 +94,7 @@ header {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  background: #fff;
+  background: white;
   color: #007bff;
   transition: 0.3s;
 }
@@ -116,7 +117,8 @@ h2 {
   color: #007bff;
 }
 
-.edu-card, .project-card {
+.edu-card,
+.project-card {
   background: white;
   padding: 20px;
   border-radius: 12px;
@@ -130,6 +132,7 @@ h2 {
   box-shadow: 0 0 20px #00c6ff;
 }
 
+/* Skills */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
@@ -143,19 +146,71 @@ h2 {
   padding: 10px 20px;
   border-radius: 25px;
   font-weight: 500;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+/* PROJECT BUTTON */
+.project-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
-ul li {
-  margin: 8px 0;
-  font-size: 1.05rem;
+.project-btn:hover {
+  background: #00c6ff;
 }
 
+/* SUB PROJECTS LIST */
+.sub-projects {
+  margin-top: 12px;
+}
+
+.sub-projects li {
+  margin: 5px 0;
+}
+
+.sub-projects li a {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sub-projects li a:hover {
+  color: #00c6ff;
+  text-decoration: underline;
+}
+
+/* LEETCODE CARD */
+.leetcode-card {
+  text-align: center;
+  margin-top: 40px;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.leetcode-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #ffa116;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.leetcode-btn:hover {
+  background: #ff8f00;
+}
+
+/* FOOTER */
 footer {
   background: #111;
   color: white;
@@ -164,7 +219,7 @@ footer {
   margin-top: 40px;
 }
 
-/* ANIMATIONS */
+/* Fade-in Animation */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -179,7 +234,7 @@ footer {
 /* DARK MODE */
 .dark-mode {
   background: #0d1117;
-  color: #f5f5f5;
+  color: #e6e6e6;
 }
 
 .dark-mode header {
@@ -187,14 +242,15 @@ footer {
 }
 
 .dark-mode .project-card,
-.dark-mode .edu-card {
+.dark-mode .edu-card,
+.dark-mode .leetcode-card {
   background: #1e1e1e;
 }
 
 #darkModeToggle {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
   color: white;
 }
